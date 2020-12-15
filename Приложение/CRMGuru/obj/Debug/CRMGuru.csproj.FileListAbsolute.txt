@@ -1,0 +1,10 @@
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\CRMGuru.exe.config
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\CRMGuru.exe
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\CRMGuru.pdb
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csprojAssemblyReference.cache
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.Form1.resources
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.Properties.Resources.resources
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csproj.GenerateResource.cache
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csproj.CoreCompileInputs.cache
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.exe
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.pdb
