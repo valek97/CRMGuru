@@ -4,9 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+
 
 namespace CRMGuru
 {
@@ -57,9 +61,35 @@ namespace CRMGuru
             label3.Visible = true;
             страныDataGridView.Visible = true;
         }
-
+        public class MyArray
+        {
+            public List<Class1> countries { get; set; }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            string json = (new WebClient()).DownloadString("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}");
+           
+            List <Class1> nameCountry = JsonConvert.DeserializeObject<List<Class1>>(json);
+            
+            foreach (var item in nameCountry)
+            {
+                
+                textBox2.Text = item.name;
+                textBox3.Text = item.numericCode;
+                textBox4.Text = item.capital;
+                textBox5.Text = item.area.ToString();
+                textBox6.Text = item.population.ToString();
+                textBox7.Text = item.region;
+            }
+
+            // var temp = (MyArray)JsonConvert.DeserializeObject(json, typeof(MyArray));
+            // string nameCountry = country.name;
+            
+
+
+           // dynamic stuff = JsonConvert.DeserializeObject("{ 'Name': 'Jon Smith', 'Address': { 'City': 'New York', 'State': 'NY' }, 'Age': 42 }");
+           // string name = stuff.Name;
+           // string address = stuff.Address.City;
             label5.Visible = true;
             label6.Visible = true;
             label7.Visible = true;

@@ -8,3 +8,6 @@ D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru
 D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csproj.CoreCompileInputs.cache
 D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.exe
 D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.pdb
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\Newtonsoft.Json.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\Newtonsoft.Json.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csproj.CopyComplete
