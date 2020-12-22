@@ -34,12 +34,12 @@ namespace CRMGuru
             if (radioButton1.Checked == true)
             {
                 radioButton2.Checked = false;
-                
+
             }
-            else 
+            else
             {
                 radioButton1.Checked = false;
-                
+
             }
             // TODO: данная строка кода позволяет загрузить данные в таблицу "cRMGuruDataSet.Страны". При необходимости она может быть перемещена или удалена.
             this.страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
@@ -61,35 +61,58 @@ namespace CRMGuru
             label3.Visible = true;
             страныDataGridView.Visible = true;
         }
-        public class MyArray
-        {
-            public List<Class1> countries { get; set; }
-        }
         private void button1_Click(object sender, EventArgs e)
         {
-            string json = (new WebClient()).DownloadString("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}");
-           
-            List <Class1> nameCountry = JsonConvert.DeserializeObject<List<Class1>>(json);
-            
-            foreach (var item in nameCountry)
+            //string json = (new WebClient()).DownloadString("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}");
+
+            using (var client = new WebClient())
             {
-                
-                textBox2.Text = item.name;
-                textBox3.Text = item.numericCode;
-                textBox4.Text = item.capital;
-                textBox5.Text = item.area.ToString();
-                textBox6.Text = item.population.ToString();
-                textBox7.Text = item.region;
+                try
+                {
+                    string json = client.DownloadString(("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}"));
+                    List<Class1> nameCountry = JsonConvert.DeserializeObject<List<Class1>>(json);
+
+                    foreach (var item in nameCountry)
+                    {
+
+                        textBox2.Text = item.name;
+                        textBox3.Text = item.numericCode;
+                        textBox4.Text = item.capital;
+                        textBox5.Text =  item.area.ToString("N2");
+                        textBox6.Text = item.population.ToString("N2");
+                        textBox7.Text = item.region;
+                    }
+                    DialogResult result = MessageBox.Show($"Название: {textBox2.Text}\nКод страны: {textBox3.Text}\nСтолица:{textBox4.Text}\nПлощадь: {textBox5.Text}\nНаселение: {textBox6.Text}\nРегион: {textBox7.Text}",
+       "Сообщение",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Information,
+       MessageBoxDefaultButton.Button1,
+       MessageBoxOptions.DefaultDesktopOnly);
+                }
+                catch (WebException wex)
+                {
+                    if (((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.NotFound)
+                    {
+                        DialogResult resultErrors = MessageBox.Show($"Номер ошибки: {404}, ресурс не найден ",
+        "Ошибка",
+        MessageBoxButtons.OK,
+        MessageBoxIcon.Information,
+        MessageBoxDefaultButton.Button1,
+        MessageBoxOptions.DefaultDesktopOnly);
+                    }
+                }
             }
+
+
 
             // var temp = (MyArray)JsonConvert.DeserializeObject(json, typeof(MyArray));
             // string nameCountry = country.name;
-            
 
 
-           // dynamic stuff = JsonConvert.DeserializeObject("{ 'Name': 'Jon Smith', 'Address': { 'City': 'New York', 'State': 'NY' }, 'Age': 42 }");
-           // string name = stuff.Name;
-           // string address = stuff.Address.City;
+
+            // dynamic stuff = JsonConvert.DeserializeObject("{ 'Name': 'Jon Smith', 'Address': { 'City': 'New York', 'State': 'NY' }, 'Age': 42 }");
+            // string name = stuff.Name;
+            // string address = stuff.Address.City;
             label5.Visible = true;
             label6.Visible = true;
             label7.Visible = true;
@@ -103,15 +126,7 @@ namespace CRMGuru
             textBox6.Visible = true;
             textBox7.Visible = true;
 
-            DialogResult result = MessageBox.Show($"Название: {textBox2.Text}, Код страны:{textBox3.Text}, Столица: {textBox4.Text}, Площадь: {textBox5.Text}, Население: {textBox6.Text}, Регион: {textBox7.Text}",
-        "Сообщение",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Information,
-        MessageBoxDefaultButton.Button1,
-        MessageBoxOptions.DefaultDesktopOnly);
 
-            if (result == DialogResult.Yes)
-                button1.BackColor = Color.Red;
         }
 
         private void button2_Click(object sender, EventArgs e)

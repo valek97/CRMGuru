@@ -27,7 +27,7 @@ namespace CRMGuru
             public int population { get; set; }
             public float[] latlng { get; set; }
             public string demonym { get; set; }
-            public float area { get; set; }
+            public double area { get; set; }
             public float gini { get; set; }
             public string[] timezones { get; set; }
             public string[] borders { get; set; }
