@@ -11,3 +11,15 @@ D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru
 D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\Newtonsoft.Json.dll
 D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\Newtonsoft.Json.xml
 D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csproj.CopyComplete
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\EntityFramework.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\EntityFramework.SqlServer.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.AccessControl.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Permissions.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Principal.Windows.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\EntityFramework.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\EntityFramework.SqlServer.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.AccessControl.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Permissions.xml
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Principal.Windows.xml

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Configuration;
+
 
 
 namespace CRMGuru
@@ -63,8 +66,6 @@ namespace CRMGuru
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //string json = (new WebClient()).DownloadString("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}");
-
             using (var client = new WebClient())
             {
                 try
@@ -83,36 +84,62 @@ namespace CRMGuru
                         textBox7.Text = item.region;
                     }
                     DialogResult result = MessageBox.Show($"Название: {textBox2.Text}\nКод страны: {textBox3.Text}\nСтолица:{textBox4.Text}\nПлощадь: {textBox5.Text}\nНаселение: {textBox6.Text}\nРегион: {textBox7.Text}",
-       "Сообщение",
-       MessageBoxButtons.YesNo,
-       MessageBoxIcon.Information,
-       MessageBoxDefaultButton.Button1,
-       MessageBoxOptions.DefaultDesktopOnly);
+                     "Сообщение",
+                     MessageBoxButtons.YesNo,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button1
+                    );
+                    if (result == DialogResult.Yes)
+                    {
+                        string conStr = ConfigurationManager.ConnectionStrings["CRMGuru.Properties.Settings.CRMGuruConnectionString"].ConnectionString;
+                        SqlConnection con = new SqlConnection(conStr);
+                        con.Open();
+                        listBox1.Items.Clear();
+                        SqlCommand cmd = new SqlCommand("select * from dbo.Регионы where Название='" + textBox7.Text.ToString()+ "'", con);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read() == true)
+                        {
+                            listBox1.Items.Add(dr[0].ToString() + " " + dr[1].ToString());
+                        } else
+                        {
+                            регионыTableAdapter.Insert(textBox7.Text);
+                            регионыTableAdapter.Update(cRMGuruDataSet);
+                            регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
+                        }
+                        dr.Close();
+
+                        cmd = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", con);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read() == true)
+                        {
+                            listBox1.Items.Add(dr[0].ToString() + " " + dr[1].ToString());
+                        }
+                        else
+                        {
+                            городаTableAdapter.Insert(textBox4.Text);
+                            городаTableAdapter.Update(cRMGuruDataSet);
+                            городаTableAdapter.Fill(this.cRMGuruDataSet.Города);
+                        }
+                        dr.Close();
+                        con.Close();
+                    }
+
+
                 }
                 catch (WebException wex)
                 {
                     if (((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.NotFound)
                     {
-                        DialogResult resultErrors = MessageBox.Show($"Номер ошибки: {404}, ресурс не найден ",
-        "Ошибка",
-        MessageBoxButtons.OK,
-        MessageBoxIcon.Information,
-        MessageBoxDefaultButton.Button1,
-        MessageBoxOptions.DefaultDesktopOnly);
+                        DialogResult resultErrors = MessageBox.Show($"Введеная страна <{textBox1.Text}> не найдена ",
+                         "Ошибка",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                             MessageBoxOptions.DefaultDesktopOnly);
                     }
                 }
             }
 
-
-
-            // var temp = (MyArray)JsonConvert.DeserializeObject(json, typeof(MyArray));
-            // string nameCountry = country.name;
-
-
-
-            // dynamic stuff = JsonConvert.DeserializeObject("{ 'Name': 'Jon Smith', 'Address': { 'City': 'New York', 'State': 'NY' }, 'Age': 42 }");
-            // string name = stuff.Name;
-            // string address = stuff.Address.City;
             label5.Visible = true;
             label6.Visible = true;
             label7.Visible = true;
