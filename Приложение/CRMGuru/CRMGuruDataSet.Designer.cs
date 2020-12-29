@@ -1106,7 +1106,7 @@ namespace CRMGuru {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnНазвание = base.Columns["Название"];
-                this.columnКод_страны = base.Columns["Код страны"];
+                this.columnКод_страны = base.Columns["Код_страны"];
                 this.columnСтолица = base.Columns["Столица"];
                 this.columnПлощадь = base.Columns["Площадь"];
                 this.columnНаселение = base.Columns["Население"];
@@ -1120,7 +1120,7 @@ namespace CRMGuru {
                 base.Columns.Add(this.columnId);
                 this.columnНазвание = new global::System.Data.DataColumn("Название", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНазвание);
-                this.columnКод_страны = new global::System.Data.DataColumn("Код страны", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnКод_страны = new global::System.Data.DataColumn("Код_страны", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКод_страны);
                 this.columnСтолица = new global::System.Data.DataColumn("Столица", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтолица);
@@ -2347,7 +2347,7 @@ namespace CRMGuru.CRMGuruDataSetTableAdapters {
             tableMapping.DataSetTable = "Страны";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Название", "Название");
-            tableMapping.ColumnMappings.Add("Код страны", "Код страны");
+            tableMapping.ColumnMappings.Add("Код_страны", "Код_страны");
             tableMapping.ColumnMappings.Add("Столица", "Столица");
             tableMapping.ColumnMappings.Add("Площадь", "Площадь");
             tableMapping.ColumnMappings.Add("Население", "Население");
@@ -2355,40 +2355,40 @@ namespace CRMGuru.CRMGuruDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Страны] WHERE (([Id] = @Original_Id) AND ([Название] = @Original_Название) AND ([Код страны] = @Original_Код_страны) AND ([Столица] = @Original_Столица) AND ([Площадь] = @Original_Площадь) AND ([Население] = @Original_Население) AND ([Регион] = @Original_Регион))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Страны] WHERE (([Id] = @Original_Id) AND ([Название] = @Original_Название) AND ([Код_страны] = @Original_Код_страны) AND ([Столица] = @Original_Столица) AND ([Площадь] = @Original_Площадь) AND ([Население] = @Original_Население) AND ([Регион] = @Original_Регион))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Название", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код страны", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код_страны", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Столица", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Столица", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Площадь", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Площадь", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Население", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Население", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Регион", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Регион", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Страны] ([Название], [Код страны], [Столица], [Площадь], [Население], [Регион]) VALUES (@Название, @Код_страны, @Столица, @Площадь, @Население, @Регион);
-SELECT Id, Название, [Код страны], Столица, Площадь, Население, Регион FROM Страны WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Страны] ([Название], [Код_страны], [Столица], [Площадь], [Население], [Регион]) VALUES (@Название, @Код_страны, @Столица, @Площадь, @Население, @Регион);
+SELECT Id, Название, Код_страны, Столица, Площадь, Население, Регион FROM Страны WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Название", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код страны", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код_страны", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Столица", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Столица", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Площадь", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Площадь", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Население", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Население", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Регион", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Регион", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Страны] SET [Название] = @Название, [Код страны] = @Код_страны, [Столица] = @Столица, [Площадь] = @Площадь, [Население] = @Население, [Регион] = @Регион WHERE (([Id] = @Original_Id) AND ([Название] = @Original_Название) AND ([Код страны] = @Original_Код_страны) AND ([Столица] = @Original_Столица) AND ([Площадь] = @Original_Площадь) AND ([Население] = @Original_Население) AND ([Регион] = @Original_Регион));
-SELECT Id, Название, [Код страны], Столица, Площадь, Население, Регион FROM Страны WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Страны] SET [Название] = @Название, [Код_страны] = @Код_страны, [Столица] = @Столица, [Площадь] = @Площадь, [Население] = @Население, [Регион] = @Регион WHERE (([Id] = @Original_Id) AND ([Название] = @Original_Название) AND ([Код_страны] = @Original_Код_страны) AND ([Столица] = @Original_Столица) AND ([Площадь] = @Original_Площадь) AND ([Население] = @Original_Население) AND ([Регион] = @Original_Регион));
+SELECT Id, Название, Код_страны, Столица, Площадь, Население, Регион FROM Страны WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Название", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код страны", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код_страны", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Столица", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Столица", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Площадь", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Площадь", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Население", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Население", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Регион", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Регион", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Название", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код страны", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код_страны", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код_страны", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Столица", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Столица", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Площадь", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Площадь", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Население", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Население", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2409,8 +2409,8 @@ SELECT Id, Название, [Код страны], Столица, Площад
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Название, [Код страны], Столица, Площадь, Население, Регион FROM dbo.С" +
-                "траны";
+            this._commandCollection[0].CommandText = "SELECT Id, Название, Код_страны, Столица, Площадь, Население, Регион FROM dbo.Стр" +
+                "аны";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

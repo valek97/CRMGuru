@@ -31,14 +31,10 @@ namespace CRMGuru
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.cRMGuruDataSet = new CRMGuru.CRMGuruDataSet();
-            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.городаTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.ГородаTableAdapter();
-            this.tableAdapterManager = new CRMGuru.CRMGuruDataSetTableAdapters.TableAdapterManager();
-            this.регионыTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.РегионыTableAdapter();
-            this.страныTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.СтраныTableAdapter();
             this.городаBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cRMGuruDataSet = new CRMGuru.CRMGuruDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -53,21 +49,10 @@ namespace CRMGuru
             this.городаDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.регионыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.страныBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.fKСтраныГородаBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cRMGuruDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.страныDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -89,6 +74,7 @@ namespace CRMGuru
             this.регионыDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.регионыBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -103,50 +89,49 @@ namespace CRMGuru
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).BeginInit();
+            this.городаTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.ГородаTableAdapter();
+            this.tableAdapterManager = new CRMGuru.CRMGuruDataSetTableAdapters.TableAdapterManager();
+            this.регионыTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.РегионыTableAdapter();
+            this.страныTableAdapter = new CRMGuru.CRMGuruDataSetTableAdapters.СтраныTableAdapter();
+            this.страныBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cRMGuruDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.страныDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.городаBindingNavigator)).BeginInit();
             this.городаBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.городаDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.регионыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.страныBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKСтраныГородаBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.страныDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.регионыDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.регионыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.страныBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
+            this.bindingNavigator2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.страныDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cRMGuruDataSet
-            // 
-            this.cRMGuruDataSet.DataSetName = "CRMGuruDataSet";
-            this.cRMGuruDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // городаBindingSource
-            // 
-            this.городаBindingSource.DataMember = "Города";
-            this.городаBindingSource.DataSource = this.cRMGuruDataSet;
-            // 
-            // городаTableAdapter
-            // 
-            this.городаTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = CRMGuru.CRMGuruDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.ГородаTableAdapter = this.городаTableAdapter;
-            this.tableAdapterManager.РегионыTableAdapter = this.регионыTableAdapter;
-            this.tableAdapterManager.СтраныTableAdapter = this.страныTableAdapter;
-            // 
-            // регионыTableAdapter
-            // 
-            this.регионыTableAdapter.ClearBeforeFill = true;
-            // 
-            // страныTableAdapter
-            // 
-            this.страныTableAdapter.ClearBeforeFill = true;
             // 
             // городаBindingNavigator
             // 
@@ -187,6 +172,16 @@ namespace CRMGuru
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            // 
+            // городаBindingSource
+            // 
+            this.городаBindingSource.DataMember = "Города";
+            this.городаBindingSource.DataSource = this.cRMGuruDataSet;
+            // 
+            // cRMGuruDataSet
+            // 
+            this.cRMGuruDataSet.DataSetName = "CRMGuruDataSet";
+            this.cRMGuruDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -282,7 +277,7 @@ namespace CRMGuru
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.городаDataGridView.DataSource = this.городаBindingSource;
-            this.городаDataGridView.Location = new System.Drawing.Point(12, 61);
+            this.городаDataGridView.Location = new System.Drawing.Point(2, 84);
             this.городаDataGridView.Name = "городаDataGridView";
             this.городаDataGridView.ReadOnly = true;
             this.городаDataGridView.RowHeadersWidth = 51;
@@ -307,16 +302,6 @@ namespace CRMGuru
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // регионыBindingSource
-            // 
-            this.регионыBindingSource.DataMember = "Регионы";
-            this.регионыBindingSource.DataSource = this.cRMGuruDataSet;
-            // 
-            // страныBindingSource
-            // 
-            this.страныBindingSource.DataMember = "Страны";
-            this.страныBindingSource.DataSource = this.cRMGuruDataSet;
             // 
             // label1
             // 
@@ -350,109 +335,6 @@ namespace CRMGuru
             // 
             this.fKСтраныГородаBindingSource.DataMember = "FK_Страны_Города";
             this.fKСтраныГородаBindingSource.DataSource = this.городаBindingSource;
-            // 
-            // cRMGuruDataSetBindingSource
-            // 
-            this.cRMGuruDataSetBindingSource.DataSource = this.cRMGuruDataSet;
-            this.cRMGuruDataSetBindingSource.Position = 0;
-            // 
-            // страныDataGridView
-            // 
-            this.страныDataGridView.AutoGenerateColumns = false;
-            this.страныDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.страныDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.страныDataGridView.DataSource = this.fKСтраныГородаBindingSource;
-            this.страныDataGridView.Location = new System.Drawing.Point(11, 401);
-            this.страныDataGridView.Name = "страныDataGridView";
-            this.страныDataGridView.ReadOnly = true;
-            this.страныDataGridView.RowHeadersWidth = 51;
-            this.страныDataGridView.RowTemplate.Height = 24;
-            this.страныDataGridView.Size = new System.Drawing.Size(1229, 142);
-            this.страныDataGridView.TabIndex = 9;
-            this.страныDataGridView.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Название";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Код страны";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Код страны";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Столица";
-            this.dataGridViewTextBoxColumn8.DataSource = this.городаBindingSource;
-            this.dataGridViewTextBoxColumn8.DisplayMember = "Название";
-            this.dataGridViewTextBoxColumn8.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Столица";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn8.ValueMember = "Id";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Площадь";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Площадь";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Население";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Население";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Регион";
-            this.dataGridViewTextBoxColumn11.DataSource = this.регионыBindingSource;
-            this.dataGridViewTextBoxColumn11.DisplayMember = "Название";
-            this.dataGridViewTextBoxColumn11.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Регион";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn11.ValueMember = "Id";
-            this.dataGridViewTextBoxColumn11.Width = 83;
             // 
             // radioButton1
             // 
@@ -636,7 +518,7 @@ namespace CRMGuru
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.регионыDataGridView.DataSource = this.регионыBindingSource;
-            this.регионыDataGridView.Location = new System.Drawing.Point(352, 61);
+            this.регионыDataGridView.Location = new System.Drawing.Point(342, 84);
             this.регионыDataGridView.Name = "регионыDataGridView";
             this.регионыDataGridView.RowHeadersWidth = 51;
             this.регионыDataGridView.RowTemplate.Height = 24;
@@ -659,6 +541,11 @@ namespace CRMGuru
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // регионыBindingSource
+            // 
+            this.регионыBindingSource.DataMember = "Регионы";
+            this.регионыBindingSource.DataSource = this.cRMGuruDataSet;
             // 
             // bindingNavigator1
             // 
@@ -794,11 +681,245 @@ namespace CRMGuru
             this.listBox1.Size = new System.Drawing.Size(1229, 148);
             this.listBox1.TabIndex = 30;
             // 
+            // городаTableAdapter
+            // 
+            this.городаTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.UpdateOrder = CRMGuru.CRMGuruDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.ГородаTableAdapter = this.городаTableAdapter;
+            this.tableAdapterManager.РегионыTableAdapter = this.регионыTableAdapter;
+            this.tableAdapterManager.СтраныTableAdapter = this.страныTableAdapter;
+            // 
+            // регионыTableAdapter
+            // 
+            this.регионыTableAdapter.ClearBeforeFill = true;
+            // 
+            // страныTableAdapter
+            // 
+            this.страныTableAdapter.ClearBeforeFill = true;
+            // 
+            // страныBindingSource
+            // 
+            this.страныBindingSource.DataMember = "Страны";
+            this.страныBindingSource.DataSource = this.cRMGuruDataSet;
+            // 
+            // cRMGuruDataSetBindingSource
+            // 
+            this.cRMGuruDataSetBindingSource.DataSource = this.cRMGuruDataSet;
+            this.cRMGuruDataSetBindingSource.Position = 0;
+            // 
+            // bindingNavigator2
+            // 
+            this.bindingNavigator2.AddNewItem = this.toolStripButton8;
+            this.bindingNavigator2.BindingSource = this.страныBindingSource;
+            this.bindingNavigator2.CountItem = this.toolStripLabel2;
+            this.bindingNavigator2.DeleteItem = this.toolStripButton9;
+            this.bindingNavigator2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigator2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.toolStripSeparator4,
+            this.toolStripTextBox2,
+            this.toolStripLabel2,
+            this.toolStripSeparator5,
+            this.toolStripButton12,
+            this.toolStripButton13,
+            this.toolStripSeparator6,
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripButton14});
+            this.bindingNavigator2.Location = new System.Drawing.Point(0, 54);
+            this.bindingNavigator2.MoveFirstItem = this.toolStripButton10;
+            this.bindingNavigator2.MoveLastItem = this.toolStripButton13;
+            this.bindingNavigator2.MoveNextItem = this.toolStripButton12;
+            this.bindingNavigator2.MovePreviousItem = this.toolStripButton11;
+            this.bindingNavigator2.Name = "bindingNavigator2";
+            this.bindingNavigator2.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigator2.Size = new System.Drawing.Size(1260, 27);
+            this.bindingNavigator2.TabIndex = 31;
+            this.bindingNavigator2.Text = "bindingNavigator2";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton8.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton8.Text = "Добавить";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(55, 24);
+            this.toolStripLabel2.Text = "для {0}";
+            this.toolStripLabel2.ToolTipText = "Общее число элементов";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton9.Text = "Удалить";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton10.Text = "Переместить в начало";
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton11.Text = "Переместить назад";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.AccessibleName = "Положение";
+            this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 27);
+            this.toolStripTextBox2.Text = "0";
+            this.toolStripTextBox2.ToolTipText = "Текущее положение";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton12.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton12.Text = "Переместить вперед";
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton13.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton13.Text = "Переместить в конец";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton14
+            // 
+            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton14.Image")));
+            this.toolStripButton14.Name = "toolStripButton14";
+            this.toolStripButton14.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton14.Text = "Сохранить данные";
+            // 
+            // страныDataGridView
+            // 
+            this.страныDataGridView.AutoGenerateColumns = false;
+            this.страныDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.страныDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14});
+            this.страныDataGridView.DataSource = this.страныBindingSource;
+            this.страныDataGridView.Location = new System.Drawing.Point(12, 390);
+            this.страныDataGridView.Name = "страныDataGridView";
+            this.страныDataGridView.RowHeadersWidth = 51;
+            this.страныDataGridView.RowTemplate.Height = 24;
+            this.страныDataGridView.Size = new System.Drawing.Size(1180, 163);
+            this.страныDataGridView.TabIndex = 31;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Название";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Код_страны";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Код_страны";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Столица";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Столица";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Площадь";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Площадь";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Население";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Население";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Регион";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Регион";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 721);
+            this.ClientSize = new System.Drawing.Size(1260, 727);
+            this.Controls.Add(this.страныDataGridView);
+            this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.регионыDataGridView);
@@ -820,7 +941,6 @@ namespace CRMGuru
             this.Controls.Add(this.label4);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.страныDataGridView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -829,21 +949,24 @@ namespace CRMGuru
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.городаBindingNavigator)).EndInit();
             this.городаBindingNavigator.ResumeLayout(false);
             this.городаBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.городаDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.регионыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.страныBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKСтраныГородаBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.страныDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.регионыDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.регионыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.страныBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cRMGuruDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
+            this.bindingNavigator2.ResumeLayout(false);
+            this.bindingNavigator2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.страныDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -880,14 +1003,6 @@ namespace CRMGuru
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource fKСтраныГородаBindingSource;
         private System.Windows.Forms.BindingSource cRMGuruDataSetBindingSource;
-        private System.Windows.Forms.DataGridView страныDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label4;
@@ -923,6 +1038,30 @@ namespace CRMGuru
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.BindingNavigator bindingNavigator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripButton toolStripButton13;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton toolStripButton14;
+        private System.Windows.Forms.DataGridView страныDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }
 

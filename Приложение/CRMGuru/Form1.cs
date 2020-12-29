@@ -68,20 +68,26 @@ namespace CRMGuru
         {
             using (var client = new WebClient())
             {
+               
+                int population = 0;
+                double area = 0;
                 try
                 {
-                    string json = client.DownloadString(("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}"));
+                    string json = Encoding.UTF8.GetString(client.DownloadData("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}"));
                     List<Class1> nameCountry = JsonConvert.DeserializeObject<List<Class1>>(json);
 
                     foreach (var item in nameCountry)
                     {
-
                         textBox2.Text = item.name;
                         textBox3.Text = item.numericCode;
                         textBox4.Text = item.capital;
                         textBox5.Text =  item.area.ToString("N2");
                         textBox6.Text = item.population.ToString("N2");
                         textBox7.Text = item.region;
+                        
+                        population = item.population;
+                        area = item.area;
+                        
                     }
                     DialogResult result = MessageBox.Show($"Название: {textBox2.Text}\nКод страны: {textBox3.Text}\nСтолица:{textBox4.Text}\nПлощадь: {textBox5.Text}\nНаселение: {textBox6.Text}\nРегион: {textBox7.Text}",
                      "Сообщение",
@@ -96,31 +102,95 @@ namespace CRMGuru
                         con.Open();
                         listBox1.Items.Clear();
                         SqlCommand cmd = new SqlCommand("select * from dbo.Регионы where Название='" + textBox7.Text.ToString()+ "'", con);
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        if (dr.Read() == true)
+                        SqlDataReader drRegions = cmd.ExecuteReader();
+                        string[] Country = new string [2];
+                        
+                        if (drRegions.Read() == true)
                         {
-                            listBox1.Items.Add(dr[0].ToString() + " " + dr[1].ToString());
-                        } else
-                        {
-                            регионыTableAdapter.Insert(textBox7.Text);
-                            регионыTableAdapter.Update(cRMGuruDataSet);
-                            регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
-                        }
-                        dr.Close();
-
-                        cmd = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", con);
-                        dr = cmd.ExecuteReader();
-                        if (dr.Read() == true)
-                        {
-                            listBox1.Items.Add(dr[0].ToString() + " " + dr[1].ToString());
+                            listBox1.Items.Add(drRegions[0].ToString() + " " + drRegions[1].ToString());
+                            Country[0] = drRegions[0].ToString();
+                            drRegions.Close();
                         }
                         else
                         {
+                             
+                             регионыTableAdapter.Insert(textBox7.Text);
+                           
+                             регионыTableAdapter.Update(cRMGuruDataSet);
+                             регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
+                            drRegions.Close();
+                            SqlCommand cmd2 = new SqlCommand("select * from dbo.Регионы where Название='" + textBox7.Text.ToString() + "'", con);
+                             SqlDataReader drRegions2 = cmd2.ExecuteReader();
+                            if (drRegions2.Read() == true)
+                            {
+                                Country[0] = drRegions2[0].ToString();
+                            }
+                             
+                            drRegions2.Close();
+
+
+                            
+
+                        }
+
+                        
+                        cmd = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", con);
+                        SqlDataReader drCity = cmd.ExecuteReader();
+                       
+                        if (drCity.Read() == true)
+                        {
+                            listBox1.Items.Add(drCity[0].ToString() + " " + drCity[1].ToString());
+                            Country[1] = drCity[0].ToString();
+                            drCity.Close();
+                        }
+                        else
+                        {
+                            drCity.Close();
                             городаTableAdapter.Insert(textBox4.Text);
+                            
                             городаTableAdapter.Update(cRMGuruDataSet);
                             городаTableAdapter.Fill(this.cRMGuruDataSet.Города);
+                            SqlCommand cmd2 = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", con);
+                            SqlDataReader drCity2 = cmd2.ExecuteReader();
+                            if (drCity2.Read() == true)
+                                Country[1] = drCity2[0].ToString();
+                            drCity2.Close();
+
                         }
-                        dr.Close();
+                        
+                        
+                        cmd = new SqlCommand("select * from dbo.Страны where Код_страны='" + textBox3.Text.ToString() + "'", con);
+                        SqlDataReader drCountry = cmd.ExecuteReader();
+
+                        if (drCountry.Read() == true)
+                        {
+                            listBox1.Items.Add(drCountry[0].ToString() + " " + drCountry[1].ToString() + " " +drCountry[2].ToString());
+                            drCountry.Close();
+                        }
+                        else
+                        {
+                             страныTableAdapter.Insert(textBox2.Text, textBox3.Text, Convert.ToInt32(Country[1].ToString()), area, population,Convert.ToInt32( Country[0].ToString()));
+                             страныTableAdapter.Update(cRMGuruDataSet);
+                             страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
+
+                            drCountry.Close();
+                            /*
+                            cmd = new SqlCommand("INSERT INTO dbo.Страны (Название, Код_страны, Столица, Площадь, Население, Регион)  VALUES (" +
+                                " @Название, @Код_страны, @Столица, @Площадь, @Население, @Регион)", con);
+                            cmd.Parameters.AddWithValue("@Название", textBox2.Text);
+                            cmd.Parameters.AddWithValue("@Код_страны", textBox3.Text);
+                            cmd.Parameters.AddWithValue("@Столица", Convert.ToInt32(Country[1].ToString()));
+                            cmd.Parameters.AddWithValue("@Площадь", area);
+                            cmd.Parameters.AddWithValue("@Население", population);
+                            cmd.Parameters.AddWithValue("@Регион", Convert.ToInt32(Country[0].ToString()));
+
+                            cmd.ExecuteNonQuery();
+                            */
+
+                        }
+
+                        
+
                         con.Close();
                     }
 
