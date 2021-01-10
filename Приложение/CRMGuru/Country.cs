@@ -10,10 +10,10 @@ namespace CRMGuru
 
         public class Rootobject
         {
-            public Class1[] Property1 { get; set; }
+            public Country[] Property1 { get; set; }
         }
 
-        public class Class1
+        public class Country
         {
             public string name { get; set; }
             public string[] topLevelDomain { get; set; }
