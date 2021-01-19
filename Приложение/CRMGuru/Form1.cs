@@ -77,10 +77,10 @@ namespace CRMGuru
             {               
                 int population = 0;
                 double area = 0;
-                try
-                {
-                    var json = Encoding.UTF8.GetString(client.DownloadData("https://restcountries.eu/rest/v2/name/" + $"{ textBox1.Text}"));
-                    var nameCountry = JsonConvert.DeserializeObject<List<Country>>(json);
+                    WebRequest webRequest = new WebRequest();
+                    var nameCountry = webRequest.WebResponse(textBox1.Text);
+                    if (nameCountry != null)
+                    {
                         foreach (var item in nameCountry)
                         {
                             textBox2.Text = item.name;
@@ -92,12 +92,13 @@ namespace CRMGuru
                             population = item.population;
                             area = item.area;
                         }
+
                         DialogResult result = MessageBox.Show($"Название: {textBox2.Text}\nКод страны: {textBox3.Text}\nСтолица:{textBox4.Text}\nПлощадь: {textBox5.Text}\nНаселение: {textBox6.Text}\nРегион: {textBox7.Text}",
-                         "Сообщение",
-                         MessageBoxButtons.YesNo,
-                         MessageBoxIcon.Information,
-                         MessageBoxDefaultButton.Button1
-                        );
+                             "Сообщение",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Information,
+                             MessageBoxDefaultButton.Button1
+                            );
                         if (result == DialogResult.Yes)
                         {
                             string connectionString = ConfigurationManager.ConnectionStrings["CRMGuru.Properties.Settings.CRMGuruConnectionString"].ConnectionString;
@@ -170,39 +171,22 @@ namespace CRMGuru
                                 drCountry.Close();
                             }
                             connnectionDB.Close();
-                        label5.Visible = true;
-                        label6.Visible = true;
-                        label7.Visible = true;
-                        label8.Visible = true;
-                        label9.Visible = true;
-                        label10.Visible = true;
-                        textBox2.Visible = true;
-                        textBox3.Visible = true;
-                        textBox4.Visible = true;
-                        textBox5.Visible = true;
-                        textBox6.Visible = true;
-                        textBox7.Visible = true;
+                            label5.Visible = true;
+                            label6.Visible = true;
+                            label7.Visible = true;
+                            label8.Visible = true;
+                            label9.Visible = true;
+                            label10.Visible = true;
+                            textBox2.Visible = true;
+                            textBox3.Visible = true;
+                            textBox4.Visible = true;
+                            textBox5.Visible = true;
+                            textBox6.Visible = true;
+                            textBox7.Visible = true;
+                        }
                     }
-                }
-                catch (WebException wex)
-                {
-                    if (((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.NotFound)
-                    {
-                        DialogResult resultErrors = MessageBox.Show($"Введеная страна <{textBox1.Text}> не найдена ",
-                         "Ошибка",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information,
-                          MessageBoxDefaultButton.Button1);
-                    }
-                    if (((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.BadGateway)
-                    {
-                        DialogResult resultErrors = MessageBox.Show("Cервис недоступен",
-                         "Ошибка",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information,
-                          MessageBoxDefaultButton.Button1);
-                    }
-                }
+                
+                
                 
             }
             

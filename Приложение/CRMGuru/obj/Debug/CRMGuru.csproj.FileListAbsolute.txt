@@ -23,3 +23,5 @@ D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.
 D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Permissions.xml
 D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.Security.Principal.Windows.xml
 D:\репозитории\CRMGuru\Приложение\CRMGuru\obj\Debug\CRMGuru.csprojAssemblyReference.cache
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.ValueTuple.dll
+D:\репозитории\CRMGuru\Приложение\CRMGuru\bin\Debug\System.ValueTuple.xml
