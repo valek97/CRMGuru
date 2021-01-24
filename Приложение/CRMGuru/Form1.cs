@@ -77,7 +77,8 @@ namespace CRMGuru
             {               
                 int population = 0;
                 double area = 0;
-                    WebRequest webRequest = new WebRequest();
+                DB dB = new DB();
+                WebRequest webRequest = new WebRequest();
                     var nameCountry = webRequest.WebResponse(textBox1.Text);
                     if (nameCountry != null)
                     {
@@ -101,76 +102,7 @@ namespace CRMGuru
                             );
                         if (result == DialogResult.Yes)
                         {
-                            string connectionString = ConfigurationManager.ConnectionStrings["CRMGuru.Properties.Settings.CRMGuruConnectionString"].ConnectionString;
-                            SqlConnection connnectionDB = new SqlConnection(connectionString);
-                            connnectionDB.Open();
-                            SqlCommand commandRead = new SqlCommand("select * from dbo.Регионы where Название='" + textBox7.Text.ToString() + "'", connnectionDB);
-                            SqlDataReader dataReaderRegions = commandRead.ExecuteReader();
-                            string[] Country = new string[2];
-
-                            if (dataReaderRegions.Read() == true)
-                            {
-                                Country[0] = dataReaderRegions[0].ToString();
-                                dataReaderRegions.Close();
-                            }
-                            else
-                            {
-                                регионыTableAdapter.Insert(textBox7.Text);
-
-                                регионыTableAdapter.Update(cRMGuruDataSet);
-                                регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
-                                dataReaderRegions.Close();
-                                SqlCommand commandAfterCreate = new SqlCommand("select * from dbo.Регионы where Название='" + textBox7.Text.ToString() + "'", connnectionDB);
-                                SqlDataReader drRegions2 = commandAfterCreate.ExecuteReader();
-                                if (drRegions2.Read() == true)
-                                {
-                                    Country[0] = drRegions2[0].ToString();
-                                }
-                                drRegions2.Close();
-                            }
-                            commandRead = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", connnectionDB);
-                            SqlDataReader dataReaderCity = commandRead.ExecuteReader();
-                            if (dataReaderCity.Read() == true)
-                            {
-                                Country[1] = dataReaderCity[0].ToString();
-                                dataReaderCity.Close();
-                            }
-                            else
-                            {
-                                dataReaderCity.Close();
-                                городаTableAdapter.Insert(textBox4.Text);
-                                городаTableAdapter.Update(cRMGuruDataSet);
-                                городаTableAdapter.Fill(this.cRMGuruDataSet.Города);
-                                SqlCommand commandAfterCreate = new SqlCommand("select * from dbo.Города where Название='" + textBox4.Text.ToString() + "'", connnectionDB);
-                                SqlDataReader dataReaderCity2 = commandAfterCreate.ExecuteReader();
-                                if (dataReaderCity2.Read() == true)
-                                    Country[1] = dataReaderCity2[0].ToString();
-                                dataReaderCity2.Close();
-                            }
-                            commandRead = new SqlCommand("select * from dbo.Страны where Код_страны='" + textBox3.Text.ToString() + "'", connnectionDB);
-                            SqlDataReader drCountry = commandRead.ExecuteReader();
-                            if (drCountry.Read() == true)
-                            {
-                                drCountry.Close();
-                                commandRead = new SqlCommand("UPDATE dbo.Страны SET Название =@Название, Код_страны=@Код_страны, Столица=@Столица, Площадь=@Площадь, Население=@Население, Регион=@Регион WHERE Код_страны =@Код_страны", connnectionDB);
-                                commandRead.Parameters.AddWithValue("@Название", textBox2.Text);
-                                commandRead.Parameters.AddWithValue("@Код_страны", textBox3.Text);
-                                commandRead.Parameters.AddWithValue("@Площадь", area);
-                                commandRead.Parameters.AddWithValue("@Население", population);
-                                commandRead.Parameters.AddWithValue("@Регион", Country[0]);
-                                commandRead.Parameters.AddWithValue("@Столица", Country[1]);
-                                commandRead.ExecuteNonQuery();
-                                страныTableAdapter.Update(cRMGuruDataSet);
-                                страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
-                            }
-                            else
-                            {
-                                страныTableAdapter.Insert(textBox2.Text, textBox3.Text, Convert.ToInt32(Country[1].ToString()), area, population, Convert.ToInt32(Country[0].ToString()));
-                                страныTableAdapter.Update(cRMGuruDataSet);
-                                страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
-                                drCountry.Close();
-                            }
-                            connnectionDB.Close();
+                            dB.Countrys(textBox2.Text, textBox3.Text, dB.City(textBox4.Text), area, population, dB.Regions(textBox7.Text));
                             label5.Visible = true;
                             label6.Visible = true;
                             label7.Visible = true;
@@ -185,9 +117,6 @@ namespace CRMGuru
                             textBox7.Visible = true;
                         }
                     }
-                
-                
-                
             }
             
         }

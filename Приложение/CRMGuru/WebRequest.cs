@@ -13,13 +13,15 @@ namespace CRMGuru
     {
         public List<Country> WebResponse(string name)
         {
+            var client = new WebClient();
+            string json;
+            object nameCountry;
             try
             {
-                Country country = new Country();
-                var client = new WebClient();
-                string json = Encoding.UTF8.GetString(client.DownloadData("https://restcountries.eu/rest/v2/name/" + $"{name}"));
-                var nameCountry = JsonConvert.DeserializeObject<List<Country>>(json);
-                return nameCountry;
+                
+                json = Encoding.UTF8.GetString(client.DownloadData("https://restcountries.eu/rest/v2/name/" + $"{name}"));
+                nameCountry = JsonConvert.DeserializeObject<List<Country>>(json);
+                return (List<Country>)nameCountry;
             }
             catch (WebException wex)
             {

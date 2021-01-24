@@ -436,13 +436,13 @@ namespace CRMGuru
 
         #endregion
 
-        private CRMGuruDataSet cRMGuruDataSet;
+        public CRMGuruDataSet cRMGuruDataSet;
         private System.Windows.Forms.BindingSource городаBindingSource;
-        private CRMGuruDataSetTableAdapters.ГородаTableAdapter городаTableAdapter;
+        public CRMGuruDataSetTableAdapters.ГородаTableAdapter городаTableAdapter;
         private CRMGuruDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private CRMGuruDataSetTableAdapters.РегионыTableAdapter регионыTableAdapter;
+        public CRMGuruDataSetTableAdapters.РегионыTableAdapter регионыTableAdapter;
         private System.Windows.Forms.BindingSource регионыBindingSource;
-        private CRMGuruDataSetTableAdapters.СтраныTableAdapter страныTableAdapter;
+        public CRMGuruDataSetTableAdapters.СтраныTableAdapter страныTableAdapter;
         private System.Windows.Forms.BindingSource страныBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource fKСтраныГородаBindingSource;

@@ -102,6 +102,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CRMGuruDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DB.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
