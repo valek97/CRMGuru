@@ -79,8 +79,8 @@ namespace CRMGuru
                 double area = 0;
                 DB dB = new DB();
                 WebRequest webRequest = new WebRequest();
-                    var nameCountry = webRequest.WebResponse(textBox1.Text);
-                    if (nameCountry != null)
+                List<Country> nameCountry = webRequest.WebResponse(textBox1.Text);
+                if (nameCountry != null)
                     {
                         foreach (var item in nameCountry)
                         {
@@ -103,7 +103,13 @@ namespace CRMGuru
                         if (result == DialogResult.Yes)
                         {
                             dB.Countrys(textBox2.Text, textBox3.Text, dB.City(textBox4.Text), area, population, dB.Regions(textBox7.Text));
-                            label5.Visible = true;
+                            регионыTableAdapter.Update(cRMGuruDataSet);
+                            регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
+                            городаTableAdapter.Update(cRMGuruDataSet);
+                            городаTableAdapter.Fill(this.cRMGuruDataSet.Города);
+                            страныTableAdapter.Update(cRMGuruDataSet);
+                            страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
+                        label5.Visible = true;
                             label6.Visible = true;
                             label7.Visible = true;
                             label8.Visible = true;

@@ -31,8 +31,6 @@ namespace CRMGuru
             else
             {
                 регионыTableAdapter.Insert(Regions);
-                регионыTableAdapter.Update(cRMGuruDataSet);
-                регионыTableAdapter.Fill(this.cRMGuruDataSet.Регионы);
                 dataReaderRegions.Close();
                 SqlCommand commandAfterCreate = new SqlCommand("select * from dbo.Регионы where Название='" + Regions + "'", connnectionDB);
                 SqlDataReader drRegions = commandAfterCreate.ExecuteReader();
@@ -61,8 +59,6 @@ namespace CRMGuru
             {
                 dataReaderCity.Close();
                 городаTableAdapter.Insert(City);
-                городаTableAdapter.Update(cRMGuruDataSet);
-                городаTableAdapter.Fill(this.cRMGuruDataSet.Города);
                 SqlCommand commandAfterCreate = new SqlCommand("select * from dbo.Города where Название='" + City + "'", connnectionDB);
                 SqlDataReader dataReaderCity2 = commandAfterCreate.ExecuteReader();
                 if (dataReaderCity2.Read() == true)
@@ -81,26 +77,32 @@ namespace CRMGuru
             if (drCountry.Read() == true)
             {
                 drCountry.Close();
-                commandRead = new SqlCommand("UPDATE dbo.Страны SET Название =@Название, Код_страны=@Код_страны, Столица=@Столица, Площадь=@Площадь, Население=@Население, Регион=@Регион WHERE Код_страны =@Код_страны", connnectionDB);
-                commandRead.Parameters.AddWithValue("@Название", name);
-                commandRead.Parameters.AddWithValue("@Код_страны", idCountry);
-                commandRead.Parameters.AddWithValue("@Площадь", area);
-                commandRead.Parameters.AddWithValue("@Население", population);
-                commandRead.Parameters.AddWithValue("@Регион", idRegoins);
-                commandRead.Parameters.AddWithValue("@Столица", idCity);
-                commandRead.ExecuteNonQuery();
-                страныTableAdapter.Update(cRMGuruDataSet);
-                страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
+                updateCountry(name, idCountry, idCity, area, population, idRegoins);
             }
             else
             {
-                страныTableAdapter.Insert(name, idCountry, Convert.ToInt32(idCity.ToString()), area, population, Convert.ToInt32(idRegoins.ToString()));
-                страныTableAdapter.Update(cRMGuruDataSet);
-                страныTableAdapter.Fill(this.cRMGuruDataSet.Страны);
+                createCountry(name, idCountry, idCity, area, population, idRegoins);
                 drCountry.Close();
             }
             connnectionDB.Close();
             return;
+        }
+        public void createCountry(string name, string idCountry, string idCity, double area, int population, string idRegoins)
+        {
+            страныTableAdapter.Insert(name, idCountry, Convert.ToInt32(idCity.ToString()), area, population, Convert.ToInt32(idRegoins.ToString()));
+            return;
+        }
+
+        public void updateCountry(string name, string idCountry, string idCity, double area, int population, string idRegoins)
+        {
+            commandRead = new SqlCommand("UPDATE dbo.Страны SET Название =@Название, Код_страны=@Код_страны, Столица=@Столица, Площадь=@Площадь, Население=@Население, Регион=@Регион WHERE Код_страны =@Код_страны", connnectionDB);
+            commandRead.Parameters.AddWithValue("@Название", name);
+            commandRead.Parameters.AddWithValue("@Код_страны", idCountry);
+            commandRead.Parameters.AddWithValue("@Площадь", area);
+            commandRead.Parameters.AddWithValue("@Население", population);
+            commandRead.Parameters.AddWithValue("@Регион", idRegoins);
+            commandRead.Parameters.AddWithValue("@Столица", idCity);
+            commandRead.ExecuteNonQuery();
         }
     }
 }
